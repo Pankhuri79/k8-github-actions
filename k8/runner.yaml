@@ -5,5 +5,5 @@ metadata:
   name: k8s-single-runner
   namespace: actions
 spec:
-  repository: antonputra/lesson-089
+  repository: Pankhuri79/k8-github-actions
   env: []
