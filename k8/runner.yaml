@@ -5,5 +5,5 @@ metadata:
   name: k8s-single-runner
   namespace: actions
 spec:
-  repository: Pankhuri79/k8-github-actions/blob/main/
+  repository: Pankhuri79/k8-github-actions/blob/main/kr
   env: []
