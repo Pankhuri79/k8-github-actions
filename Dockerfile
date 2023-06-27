@@ -1,18 +1,18 @@
-# Use the official Node.js 14 image as the base
-FROM node:14
+FROM node:14-slim
 
-# Set the working directory inside the container
+# Create app directory in container
+RUN mkdir -p /app/
+
+# Set /app directory as default working directory
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the container
-COPY package*.json ./
+# Copy all file from current dir to /app in container
+COPY . /app/
 
-# Install dependencies
+# Install app dependencies
 RUN npm install
 
-# Copy the application files to the container
-COPY . .
+# Exposing Port
+EXPOSE 3000
 
-# Specify the command to start the application
 CMD [ "npm", "start" ]
-
