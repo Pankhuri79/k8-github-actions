@@ -6,9 +6,9 @@ on:
       - main
 
 env:
-  AKS_RESOURCE_GROUP: <resource-group-name>
-  AKS_CLUSTER_NAME: <aks-cluster-name>
-  DOCKER_IMAGE_NAME: <docker-image-name>
+  AKS_RESOURCE_GROUP: ${{ secrets.AKS_RESOURCE_GROUP }}
+  AKS_CLUSTER_NAME: ${{ secrets.AKS_CLUSTER_NAME }}
+  DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_IMAGE_NAME }}
 
 jobs:
   deploy:
@@ -26,7 +26,7 @@ jobs:
     - name: Build and push Docker image
       uses: azure/docker-login@v1
       with:
-        login-server: <docker-registry-url>
+        login-server: docker.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
