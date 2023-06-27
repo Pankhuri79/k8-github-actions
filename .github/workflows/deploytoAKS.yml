@@ -6,7 +6,8 @@ on:
       - main
 
 env:
-  AKS_RESOURCE_GROUP: ${{ secrets.AKS_RESOURCE_GROUP }}
+  AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  AZURE_RESOURCE_GROUP: ${{ secrets.AKS_RESOURCE_GROUP }}
   AKS_CLUSTER_NAME: ${{ secrets.AKS_CLUSTER_NAME }}
   DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_IMAGE_NAME }}
 
@@ -18,25 +19,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    - name: Set up Azure CLI
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Install Azure CLI
+      run: |
+        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     
-    - name: Build and push Docker image
-      uses: azure/docker-login@v1
-      with:
-        login-server: docker.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - name: Azure CLI Login
+      run: |
+        az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+    
+    - name: Set subscription
+      run: az account set --subscription ${{ env.AZURE_SUBSCRIPTION_ID }}
     
     - name: Build and push Docker image
       run: |
         docker build -t $DOCKER_IMAGE_NAME .
-        docker tag $DOCKER_IMAGE_NAME <docker-registry-url>/$DOCKER_IMAGE_NAME
-        docker push <docker-registry-url>/$DOCKER_IMAGE_NAME
+        docker tag $DOCKER_IMAGE_NAME docker.io/$DOCKER_IMAGE_NAME
+        docker push docker.io/$DOCKER_IMAGE_NAME
     
     - name: Deploy to AKS
       run: |
-        az aks get-credentials --resource-group ${{ env.AKS_RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER_NAME }}
-        kubectl set image deployment/<deployment-name> <container-name>=$DOCKER_IMAGE_NAME
+        az aks get-credentials --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER_NAME }}
+        kubectl set image deployment/testing-pankh <container-name>=$DOCKER_IMAGE_NAME
