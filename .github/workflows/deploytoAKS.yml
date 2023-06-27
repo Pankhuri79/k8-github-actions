@@ -39,4 +39,4 @@ jobs:
     - name: Deploy to AKS
       run: |
         az aks get-credentials --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --name ${{ env.AKS_CLUSTER_NAME }}
-        kubectl set image deployment/testing-pankh <container-name>=$DOCKER_IMAGE_NAME
+        kubectl set image deployment/test-github my-container=$DOCKER_IMAGE_NAME
