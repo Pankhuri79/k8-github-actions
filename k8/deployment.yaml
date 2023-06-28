@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-github
+  name: hello-world-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: test-github
+      app: hello-world-app
   template:
     metadata:
       labels:
-        app: test-github
+        app: hello-world-app
     spec:
       containers:
-        - name: my-container
+        - name: hello-world-container
           image: pankhuri79/pankh79
           ports:
             - containerPort: 8080
