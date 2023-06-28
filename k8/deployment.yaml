@@ -1,22 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: githubactions-aks-demo
+  name: test-github
 spec:
+  replicas: 3
   selector:
     matchLabels:
-      app: githubactions-aks-demo
+      app: test-github
   template:
     metadata:
       labels:
-        app: githubactions-aks-demo
+        app: test-github
     spec:
       containers:
-      - name: githubactions-aks-demo
-        image: pankhuri79/pankh79
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 80
+        - name: my-container
+          image: pankhuri79/pankh79
+          ports:
+            - containerPort: 8080
