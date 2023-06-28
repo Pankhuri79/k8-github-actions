@@ -1,15 +1,12 @@
 {
-  "name": "hello-world",
+  "name": "hello-world-app",
   "version": "1.0.0",
-  "description": "Hello World Sample Nodejs App",
-  "main": "app.js",
+  "description": "Hello, World! Application",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.13.3"
-  }
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {}
 }
