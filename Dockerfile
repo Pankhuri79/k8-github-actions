@@ -9,7 +9,7 @@ COPY package.json ./
 COPY index.js ./
 
 # Install dependencies
-RUN npm install
+RUN npm install express
 
 # Expose a port for the application
 EXPOSE 8080
