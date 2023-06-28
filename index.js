@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
   const message = `
     <html>
       <head>
-        <title>Fancy Hello</title>
+        <title>Colored Hello</title>
         <style>
           body {
             font-family: Arial, sans-serif;
@@ -16,23 +16,17 @@ app.get('/', (req, res) => {
           }
           h1 {
             font-size: 48px;
-            color: #ff8c00;
-            margin-top: 100px;
           }
-          p {
-            font-size: 24px;
-            margin-top: 30px;
+          .red {
+            color: #ff0000;
+          }
+          .green {
+            color: #00ff00;
           }
         </style>
       </head>
       <body>
-        <h1>Welcome to the Fancy Hello App!</h1>
-        <p>╭━━━╮╱╱╱╱╭╮╱╭┳╮╱╭╮</p>
-        <p>╰╮╭╮┣╮╭┳╮╱┃┃╱┃┃┃╱┃┃</p>
-        <p>╱┃┃┃┃┃┃┃┃╱┃┃╱┃┃┃╱┃┃</p>
-        <p>╱┃┃┃┃┃┃┃┃╱┃┃╱┃┃┃╱┃┃</p>
-        <p>╭╯╰╯┃╰╯┃╰╮┃╰┳╯┃╰┳╯</p>
-        <p>╰━━━┻━━┻━╯╰━┻━┻━╯</p>
+        <h1>Welcome to the <span class="red">Red</span> and <span class="green">Green</span> Hello App!</h1>
       </body>
     </html>
   `;
