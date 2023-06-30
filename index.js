@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
   const message = `
     <html>
       <head>
-        <title>Colored Hello</title>
+        <title>Testing App</title>
         <style>
           body {
             font-family: Arial, sans-serif;
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
         </style>
       </head>
       <body>
-        <h1>Welcome to the <span class="red">Red</span> and <span class="green">Green</span> Hello App!</h1>
+        <h1>Welcome to the <span class="DevOps">Red</span> and <span class="World">Green</span> Hello App!</h1>
       </body>
     </html>
   `;
