@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
   </style>
 </head>
 <body style="background-color: #ccc;">
-  <h1>Welcome to the <span class="Red">DevOps</span> and <span class="Green">World</span> Hello App!</h1>
+  <h1>Welcome to the <span class="Red">DevOps</span> <span class="Green">World</span> !!</h1>
 </body>
 </html>
   `;
