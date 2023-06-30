@@ -4,31 +4,34 @@ const port = 8080;
 
 app.get('/', (req, res) => {
   const message = `
-    <html>
-      <head>
-        <title>Testing App</title>
-        <style>
-          body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            text-align: center;
-          }
-          h1 {
-            font-size: 48px;
-          }
-          .red {
-            color: #ff0000;
-          }
-          .green {
-            color: #00ff00;
-          }
-        </style>
-      </head>
-      <body>
-        <h1>Welcome to the <span class="DevOps">Red</span> and <span class="World">Green</span> Hello App!</h1>
-      </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Testing App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-size: 48px;
+    }
+    .red {
+      color: #ff0000;
+    }
+    .green {
+      color: #00ff00;
+    }
+  </style>
+</head>
+<body style="background-color: #ccc;">
+  <h1>Welcome to the <span class="Red">DevOps</span> and <span class="Green">World</span> Hello App!</h1>
+</body>
+</html>
   `;
   res.send(message);
 });
