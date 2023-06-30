@@ -13,7 +13,8 @@ app.get('/', (req, res) => {
       <style>
         body {
           font-family: Arial, sans-serif;
-          background-color: #f7f7f7;
+          background: url("img src/image4.jpg") no-repeat center center fixed;
+          background-size: cover;
           color: #333;
           text-align: center;
         }
@@ -54,7 +55,7 @@ app.get('/', (req, res) => {
         document.addEventListener("DOMContentLoaded", showSlides);
       </script>
     </head>
-    <body style="background-color: #ccc;">
+    <body>
       <h1>Welcome to the <span class="Red">DevOps</span> <span class="Green">World</span> !!</h1>
       <div class="slideshow-container">
         <div class="mySlides">
