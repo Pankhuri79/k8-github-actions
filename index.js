@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
+app.use(express.static(__dirname)); // Add this line to serve static files
+
 app.get('/', (req, res) => {
   const message = `
     <!DOCTYPE html>
@@ -13,7 +15,7 @@ app.get('/', (req, res) => {
       <style>
         body {
           font-family: Arial, sans-serif;
-          background: url("http://localhost:8080/image4.jpg") no-repeat center center fixed;
+          background: url("image4.jpg") no-repeat center center fixed;
           background-size: cover;
           color: #333;
           text-align: center;
@@ -59,13 +61,13 @@ app.get('/', (req, res) => {
       <h1>Welcome to the <span class="Red">DevOps</span> <span class="Green">World</span> !!</h1>
       <div class="slideshow-container">
         <div class="mySlides">
-          <img src="http://localhost:8080/image1.jpg" alt="Image 1">
+          <img src="image1.jpg" alt="Image 1">
         </div>
         <div class="mySlides">
-          <img src="http://localhost:8080/image2.jpg" alt="Image 2">
+          <img src="image2.jpg" alt="Image 2">
         </div>
         <div class="mySlides">
-          <img src="http://localhost:8080/image3.jpg" alt="Image 3">
+          <img src="image3.jpg" alt="Image 3">
         </div>
       </div>
     </body>
