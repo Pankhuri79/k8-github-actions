@@ -54,24 +54,8 @@ jobs:
           kubectl apply -f k8/deployment.yaml
           kubectl apply -f k8/svc.yaml
 
-      - name: Cache Kubernetes manifests
-        uses: actions/cache@v2
-        with:
-          path: k8
-          key: ${{ runner.os }}-k8-${{ hashFiles('k8/**') }}
-          restore-keys: |
-            ${{ runner.os }}-k8-
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: deployment-files
-          path: k8
-          tags: deployment
-
-      - name: Upload Docker image
-        uses: actions/upload-artifact@v2
-        with:
-          name: docker-image
+          name: dockerfile-${{ github.run_number }}
           path: Dockerfile
-          tags: docker
