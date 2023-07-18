@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build-artifacts
-          path: k8/
+          path: ./k8
 
   deploy:
     needs: release
@@ -87,4 +87,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build-artifacts
-          path: k8/
+          path: ./k8
